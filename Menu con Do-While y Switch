@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class MenuTelefonos {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String modelo;
+        int anio, ram, opcion;
+        double precio;
+        
+        do {
+            System.out.println("\n--- Menú de Teléfonos ---");
+            System.out.println("1. Agregar teléfono");
+            System.out.println("2. Salir");
+            System.out.print("Ingrese la opción deseada: ");
+            opcion = input.nextInt();
+            
+            switch(opcion) {
+                case 1:
+                    System.out.print("Ingrese el modelo del teléfono: ");
+                    modelo = input.next();
+                    System.out.print("Ingrese el año del teléfono: ");
+                    anio = input.nextInt();
+                    System.out.print("Ingrese la RAM del teléfono: ");
+                    ram = input.nextInt();
+                    System.out.print("Ingrese el precio del teléfono: ");
+                    precio = input.nextDouble();
+                    
+                    String estado;
+                    if (anio < 2010) {
+                        estado = "viejito";
+                    } else if (anio >= 2010 && anio <= 2019) {
+                        estado = "relativamente nuevo";
+                    } else {
+                        estado = "nuevo";
+                    }
+                    
+                    String gama;
+                    if (ram <= 4) {
+                        gama = "baja";
+                    } else if (ram >= 5 && ram <= 8) {
+                        gama = "media";
+                    } else if (ram >= 9 && ram <= 12) {
+                        gama = "alta";
+                    } else {
+                        gama = "premium";
+                    }
+                    
+                    System.out.println("\nSe ha agregado el teléfono:");
+                    System.out.println("Modelo: " + modelo);
+                    System.out.println("Año: " + anio);
+                    System.out.println("RAM: " + ram);
+                    System.out.println("Precio: " + precio);
+                    System.out.println("Estado: " + estado);
+                    System.out.println("Gama: " + gama);
+                    break;
+                case 2:
+                    System.out.println("¡Hasta luego!");
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+                    break;
+            }
+        } while(opcion != 2);
+    }
+}
